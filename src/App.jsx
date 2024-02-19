@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getData } from "./redux/dataFromApiSlice";
 import { getDataServices } from "./services/getData.services";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ minHeight: "70vh" }}>
         <h1>toolbox challenge frontend</h1>
         <Button
           variant='success'
@@ -41,6 +42,7 @@ const App = () => {
           hola
         </Button>
       </main>
+      <Footer />
     </>
   );
 };
