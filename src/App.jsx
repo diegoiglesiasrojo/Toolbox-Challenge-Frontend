@@ -7,10 +7,12 @@ import { getData } from "./redux/dataFromApiSlice";
 import { getDataServices } from "./services/getData.services";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import TheToast from "./components/TheToast";
 
 const App = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +21,7 @@ const App = () => {
       if (response.success) {
         dispatch(getData(response.response));
       } else {
-        console.log("error"); //REVISAR
+        setShowToast(!showToast);
       }
     };
     generateData();
@@ -30,9 +32,10 @@ const App = () => {
   // const data = useSelector((state) => state.dataFromApi.data);
   //console.log(isLoading);
 
-  if (!isLoading) {
+  if (isLoading) {
     return (
       <>
+        <TheToast showToast={showToast} setShowToast={setShowToast} />
         <Header />
         <main
           style={{
@@ -57,6 +60,7 @@ const App = () => {
 
   return (
     <>
+      <TheToast showToast={showToast} setShowToast={setShowToast} />
       <Header />
       <main style={{ minHeight: "70vh" }}>
         <h1>toolbox challenge frontend</h1>
@@ -64,6 +68,7 @@ const App = () => {
           variant='success'
           onClick={() => {
             console.log("holaa");
+            setShowToast(!showToast);
           }}
         >
           hola

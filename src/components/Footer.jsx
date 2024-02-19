@@ -1,38 +1,3 @@
-// import React from "react";
-
-// const Footer = () => {
-//   return (
-//     <footer
-//       style={{
-//         width: "100%",
-//         height: "10vh",
-//         display: "flex",
-//         justifyContent: "space-evenly",
-//         alignItems: "center",
-//         paddingTop: "5px",
-//         paddingBottom: "5px",
-//         backgroundColor: "#1B1A55",
-//       }}
-//     >
-//       <p style={{ fontSize: "12px", color: "#9290C3", margin: "0px" }}>
-//         Web page created by{" "}
-//         <a
-//           style={{ textDecoration: "none", color: "#535C91" }}
-//           href='https://www.linkedin.com/in/darkdiego/'
-//           target='_blank'
-//         >
-//           Diego Iglesias
-//         </a>
-//       </p>
-//       <p style={{ fontSize: "10px", color: "#9290C3", margin: "0px" }}>
-//         All rights reserved
-//       </p>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
