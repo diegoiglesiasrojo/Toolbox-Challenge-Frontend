@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getData } from "./redux/dataFromApiSlice";
 import { getDataServices } from "./services/getData.services";
+import Header from "./components/Header";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,20 +26,22 @@ const App = () => {
 
   // import { useSelector, useDispatch } from "react-redux";
   // const data = useSelector((state) => state.dataFromApi.data);
-
-  console.log(isLoading);
+  //console.log(isLoading);
   return (
-    <main>
-      <h1>toolbox challenge frontend</h1>
-      <Button
-        variant='success'
-        onClick={() => {
-          console.log("holaa");
-        }}
-      >
-        hola
-      </Button>
-    </main>
+    <>
+      <Header />
+      <main>
+        <h1>toolbox challenge frontend</h1>
+        <Button
+          variant='success'
+          onClick={() => {
+            console.log("holaa");
+          }}
+        >
+          hola
+        </Button>
+      </main>
+    </>
   );
 };
 
