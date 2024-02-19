@@ -1,7 +1,6 @@
 import Toast from "react-bootstrap/Toast";
 
 const TheToast = ({ showToast, setShowToast }) => {
-  console.log(showToast);
   return (
     <Toast
       style={{

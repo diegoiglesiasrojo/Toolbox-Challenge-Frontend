@@ -1,5 +1,3 @@
-import "./App.css";
-import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
@@ -8,6 +6,7 @@ import { getDataServices } from "./services/getData.services";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TheToast from "./components/TheToast";
+import TableWithData from "./components/TableWithData";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -27,10 +26,6 @@ const App = () => {
     generateData();
     setIsLoading(false);
   }, []);
-
-  // import { useSelector, useDispatch } from "react-redux";
-  // const data = useSelector((state) => state.dataFromApi.data);
-  //console.log(isLoading);
 
   if (isLoading) {
     return (
@@ -62,18 +57,7 @@ const App = () => {
     <>
       <TheToast showToast={showToast} setShowToast={setShowToast} />
       <Header />
-      <main style={{ minHeight: "70vh" }}>
-        <h1>toolbox challenge frontend</h1>
-        <Button
-          variant='success'
-          onClick={() => {
-            console.log("holaa");
-            setShowToast(!showToast);
-          }}
-        >
-          hola
-        </Button>
-      </main>
+      <TableWithData />
       <Footer />
     </>
   );
