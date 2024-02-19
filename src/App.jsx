@@ -1,23 +1,32 @@
 import "./App.css";
 import Button from "react-bootstrap/Button";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 import { getData } from "./redux/dataFromApiSlice";
+import { getDataServices } from "./services/getData.services";
 
 const App = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(
-      getData({
-        test: "test",
-      })
-    );
+    setIsLoading(true);
+    const generateData = async () => {
+      const response = await getDataServices();
+      if (response.success) {
+        dispatch(getData(response.response));
+      } else {
+        console.log("error"); //REVISAR
+      }
+    };
+    generateData();
+    setIsLoading(false);
   }, []);
 
-  const data = useSelector((state) => state.dataFromApi.data);
+  // import { useSelector, useDispatch } from "react-redux";
+  // const data = useSelector((state) => state.dataFromApi.data);
 
-  console.log(data);
+  console.log(isLoading);
   return (
     <main>
       <h1>toolbox challenge frontend</h1>
