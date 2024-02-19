@@ -4,12 +4,35 @@ import { useSelector } from "react-redux";
 
 const TableWithData = () => {
   const data = useSelector((state) => state.dataFromApi.data);
-  console.log(data);
+
+  const TrGenerator = () => {
+    return (
+      <>
+        {data.map((fileObj) => {
+          return (
+            <React.Fragment key={fileObj.file}>
+              {fileObj.lines.map((row, index) => {
+                return (
+                  <tr key={fileObj.file + index}>
+                    <td>{fileObj.file}</td>
+                    <td>{row.text}</td>
+                    <td>{row.number}</td>
+                    <td>{row.hex}</td>
+                  </tr>
+                );
+              })}
+            </React.Fragment>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <main style={{ minHeight: "70vh" }}>
       <section
         style={{
-          height: "65vh",
+          maxHeight: "65vh",
           width: "90vw",
           overflow: "auto",
           marginTop: "2.5vh",
@@ -25,104 +48,7 @@ const TableWithData = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Ottodaaaaaaaaaddadaddadadad</td>
-              <td>
-                @mdoddddddddddddddddaaaaaaaaaaaaaaaaaaaccccccccccccccccccccccc
-              </td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>1adad</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
+            <TrGenerator />
           </tbody>
         </Table>
       </section>
@@ -131,3 +57,12 @@ const TableWithData = () => {
 };
 
 export default TableWithData;
+
+{
+  /* <tr>
+  <td>1adad</td>
+  <td>Mark</td>
+  <td>Otto</td>
+  <td>@mdo</td>
+</tr>; */
+}

@@ -10,21 +10,21 @@ import TableWithData from "./components/TableWithData";
 
 const App = () => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     const generateData = async () => {
       const response = await getDataServices();
       if (response.success) {
         dispatch(getData(response.response));
+        setIsLoading(false);
       } else {
         setShowToast(!showToast);
+        setIsLoading(false);
       }
     };
     generateData();
-    setIsLoading(false);
   }, []);
 
   if (isLoading) {

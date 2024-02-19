@@ -18,7 +18,7 @@ const Header = () => {
       <h1 style={{ fontSize: "20px", color: "#9290C3", margin: "0px" }}>
         Toolbox Challenge
       </h1>
-      <InputGroup style={{ width: "130px" }}>
+      {/* <InputGroup style={{ width: "130px" }}>
         <FormControl
           style={{
             backgroundColor: "#535C91",
@@ -26,7 +26,7 @@ const Header = () => {
             borderWidth: "0px",
           }}
         />
-      </InputGroup>
+      </InputGroup> */}
     </header>
   );
 };
